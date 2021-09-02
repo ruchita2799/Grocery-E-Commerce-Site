@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"> 
+	<title>Kiran Hub - Online Grocery Store</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="./styles.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"/>
+	<!-- owl css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"/>
+	<!-- jquery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+	<!-- owl js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+</head>
+<style type="text/css">
+  .adv_large{
+display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap:20px;
+  }
+  .adv_small img {
+    width:100%;
+  }
+  .search_form{
+    diplay:grid;
+    grid-template-columns: auto 50px;
+  }
+  .cat_slider .cat_slider_main .cat_slider_list img{
+    height:100px;
+  }
+  .cat_slider .cat_slider_main .cat_slider_list{
+    margin:0 10px;
+  }
+  
+	header{
+		background-color: #5371fe;
+	}
+	.header_main{
+		display: flex;
+	    align-items: center;
+	    justify-content: space-between;
+		background: #11998e;  /* fallback for old browsers */
+		background: #000046;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #1CB5E0, #000046);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #1CB5E0, #000046); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+	}
+	.logo{
+		flex:1;
+	}
+	.search_bar{
+		flex: 2;
+	    display: flex;
+	    justify-content: center;
+	}
+	.header_btn{
+		flex:1;
+	}
+	.search_bar_form{
+		display: grid;
+	    grid-template-columns: 1fr 80px;
+	    width: 80%;
+	    grid-gap: 0px;
+	}
+	.search_btn{
+		background: #0cebeb;  /* fallback for old browsers */
+		background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+		background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		color:#fff;
+		border:1px solid #4CAF50;
+		border-radius: 0px 25px 25px 0;
+		height: 50px;
+		position: relative;
+    right: 4px;
+    border: 0;
+	}
+	.form-control{
+		border-radius: 25px 0 0 25px;
+    	height: 50px;
+	}
+	.login_btn,
+	.cart_btn button{
+		background: #0cebeb;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+		color: #fff;
+		border-radius: 20px;
+		padding:5px 15px;
+	}
+</style>
+<body>
+	<!-- contact info bar -->
+	<div class="contact_info">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<div class="contact_details">
+						<a href="tel:+180012456"><i class="fas fa-phone-alt"></i> +1800-1242458</a>
+						<a href="mailto:support@kiranhub.in"><i class="fas fa-envelope"></i> support@kiranhub.in</a>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="social_icon">
+						<a href="#"><i class="fab fa-facebook"></i></a>
+						<a href="#"><i class="fab fa-instagram"></i></a>
+						<a href="#"><i class="fab fa-twitter"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<header>
+		<div class="container-fluid">
+			<div class="header_main">
+				<div class="logo">
+					<a href="#">
+						<img src="./kiranhub.gif">
+					</a>
+				</div>
+				<div class="search_bar">
+					<form class="search_bar_form">
+				    	<input class="form-control" type="search" placeholder="Search" aria-label="Search" width="80%">
+				    	<button class="search_btn btn btn-outline-success " type="submit"><i class="fas fa-search"></i></button>
+				  	</form>
+				</div>
+				<div class="header_btn">
+					<div class="header_grid">
+						<div class="login_modal">
+								<!-- Button trigger modal -->
+							<button type="button" class="btn login_btn" data-toggle="modal" data-target="#staticBackdrop">
+								 <i class="fas fa-sign-in-alt"></i> login
+							</button>
+
+								<!-- Modal -->
+							<div class="modal fade" id="staticBackdrop" data-backdrop="static"data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								<div class="modal-dialog">
+								    <div class="modal-content">
+								      	<div class="modal-header">
+									        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+									        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									          <span aria-hidden="true">&times;</span>
+									        </button>
+								    	</div>
+									    <div class="modal-body">
+									        ...
+									    </div>
+									    <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+									        <button type="button" class="btn btn-primary">Understood</button>
+									    </div>
+								    </div>
+								</div>
+							</div>
+						</div>
+						<div class="cart_btn">
+							<button type="button" class="btn btn-primary">
+							  <i class="fas fa-shopping-cart"></i> <span class="badge badge-light">0</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="nav_bar">
+		<nav class="navbar navbar-expand-lg navbar-light">
+		  <a class="navbar-brand" href="#"></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+		    <ul class="navbar-nav">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="/shop.html">Shop</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">About us</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Contact us</a>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+	</div>
+
+
+
+	<div class="cat_slider">
+		<div class="container">
+			<div class="owl-carousel owl-theme cat_slider_main">
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://media.istockphoto.com/photos/tomato-isolated-tomato-on-white-background-with-clipping-path-full-picture-id941825808?k=6&m=941825808&s=612x612&w=0&h=zMkokhq3w7fN5xYeiTX27c6TICJ53ZvZg9AY2LNgw_0=">
+						<p>Fruits and Veggies</p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://images-na.ssl-images-amazon.com/images/I/61Rli%2BJh1sL._SL1500_.jpg">
+						<p>Grocery and Staples</p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://images-na.ssl-images-amazon.com/images/I/51CU63LbYNL._SX425_.jpg">
+						<p>personal care</p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://previews.123rf.com/images/magone/magone1011/magone101100013/8171589-raw-chicken-meat.jpg">
+						<p>Meat ,Fish and Frozen</p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://m.media-amazon.com/images/I/51DAo9RI0RL._AC_SS450_.jpg">
+						<p>Baby care</p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://images-na.ssl-images-amazon.com/images/I/81YakxRZLzL._SL1500_.jpg">
+						<p>Household Items</p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://4.imimg.com/data4/CF/HV/MY-28545695/04-500x500.png">
+						<p>Kitchen and Dining Needs</p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh_Jeyx3cxPsAEcryEhBoqGudV8L0fHbm6fQ&usqp=CAU">
+						<p>Noodles sauces and instant food</p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://images-na.ssl-images-amazon.com/images/I/61wJA-Ph8OL._SL1000_.jpg">
+						<p>Pet food</p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://5.imimg.com/data5/OP/UV/DT/SELLER-58723999/britannia-bourbon-biscuits-500x500.png">
+						<p>Biscuit Snack and Chocolates</p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnvy4XlVw0hcrwCSGamzp-C06vYkIARPERX45IU0K8IMDdGlMKAonkeZR52aeE3dxdLns&usqp=CAU">
+						<p>Bevarages </p>
+					</a>
+				</div>
+				<div class="item">
+					<a href="" class="cat_slider_list">
+						<img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/58/Instagram_egg.jpg/220px-Instagram_egg.jpg">
+						<p>Breakfast and Dairy </p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="offer_slider">
+		<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+		  <ol class="carousel-indicators">
+		    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		  </ol>
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		      <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,h=280/layout-engine/2021-05/HFS-masthead-web-1.jpg" class="d-block w-100" alt="...">
+		    </div>
+		    <div class="carousel-item">
+		      <img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,h=280/layout-engine/2021-05/HFS-masthead-web-1.jpg" class="d-block w-100" alt="...">
+		    </div>
+			<div class="carousel-item">
+				<img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,h=280/layout-engine/2021-05/HFS-masthead-web-1.jpg" class="d-block w-100" alt="...">
+			  </div>
+			  <div class="carousel-item">
+				<img src="https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=50,h=280/layout-engine/2021-05/HFS-masthead-web-1.jpg" class="d-block w-100" alt="...">
+			  </div>
+		  </div>
+		  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+	</div>
+	<!-- Catogory list -->
+	<div class="cat_list">
+		<div class="container">
+			<h1>Shop by Category</h1>
+			<div class="row">
+				<div class="col-md-3">
+					<div class="cat_sec">
+						<ul>
+							<li><a href=""><i class="fas fa-angle-right"></i>bevarages</a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Household Items</a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Pet Care</a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Baby Care</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="cat_sec">
+						<ul>
+							<li><a href=""><i class="fas fa-angle-right"></i>Home and Kitchen</a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Food and Snacks</a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Dal and Atta</a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Breakfast Stuff</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="cat_sec">
+						<ul>
+							<li><a href=""><i class="fas fa-angle-right"></i>Grocery and Staples</a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Meat and Frozens</a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i> Dry Fruits </a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Bathroom care</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="cat_sec">
+						<ul>
+							<li><a href=""><i class="fas fa-angle-right"></i>Personal Hygeine</a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Eggs and Stuff</a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Kitchen and Dining </a></li>
+							<li><a href=""><i class="fas fa-angle-right"></i>Dairy</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- offer product list -->
+	<div class="product_list">
+		<div class="container">
+			<h1>Offer Products</h1>
+			<div class="owl-carousel owl-theme">
+				<div class="item">
+					<div class="product_card">
+						<figure class="snip1171 blue hover">
+							<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample47.jpg" alt="sample47"/>
+							<div class="price">$19.00</div>
+							<figcaption>
+							  <h3>Denim Shirt </h3>
+							  <p>
+								I don't need to compromise on my principles, because they don't have the slightest bearing on what happens to me anyway.
+							  </p><a href="#">Add to Cart</a>
+							</figcaption>
+						  </figure>
+           
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<!-- Advertising banner -->
+	<div class="adv_banner">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="adv_large">
+						<img src="https://www.moreretail.in/frontend/dist/img/home/mobile-banner-slider-img6.jpg"> 
+						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFz2bYKoVLY_StdJI2MzSNiMBqfp2KFRTf7A&usqp=CAU">
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="adv_small">
+						<img src="https://www.moreretail.in/frontend/dist/img/home/mobile-banner-slider-img1.jpg">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- offer product list -->
+	<div class="product_list">
+		<div class="container">
+			<h1>Sections</h1>
+			<div class="owl-carousel owl-theme">
+				<div class="item">
+					<div class="product_card">
+						<figure class="snip1423">
+						  <img  class="rc-image"src="https://www.bigbasket.com/media/uploads/p/l/251018-8_2-kelloggs-corn-flakes.jpg" alt="sample57" />
+						  <figcaption>
+						    <h3>Breakfast</h3>
+						   
+						    <div class="price">
+						    </div>
+						  </figcaption><i class="ion-android-cart"></i>
+						  <a href="#"></a>
+						</figure>
+					</div>
+				</div>
+				<div class="item">
+					<div class="product_card">
+						<figure class="snip1423">
+						  <img class="rc-image" src="https://images-na.ssl-images-amazon.com/images/I/81YakxRZLzL._SL1500_.jpg" alt="sample57" />
+						  <figcaption>
+						    <h3>Household Items</h3>
+						
+						    <div class="price">
+						    </div>
+						  </figcaption><i class="ion-android-cart"></i>
+						  <a href="#"></a>
+						</figure>
+					</div>
+				</div>
+				<div class="item">
+					<div class="product_card">
+						<figure class="snip1423">
+						  <img class="rc-image" src="https://cdn2.storehippo.com/s/5fa5e0df144e634dc3975ef0/5fd37f1b3b281214ab80efed/webp/sunsilk-shampoo-stunning-black-shine-480x480.jpg" alt="sample57" />
+						  <figcaption>
+						    <h3>Personal Care</h3>
+						   
+						    <div class="price">
+						     </div>
+						  </figcaption><i class="ion-android-cart"></i>
+						  <a href="#"></a>
+						</figure>
+					</div>
+				</div>
+				<div class="item">
+					<div class="product_card">
+						<figure class="snip1423">
+						  <img class="rc-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq0YMQ3rQB4CVZFX7kAz8sYatCtP0_lnSJcA&usqp=CAU" alt="sample57" />
+						  <figcaption>
+						    <h3>Bevarages and Refreshers</h3>
+						   
+						    <div class="price">
+						    </div>
+						  </figcaption><i class="ion-android-cart"></i>
+						  <a href="#"></a>
+						</figure>
+					</div>
+				</div>
+				<div class="item">
+					<div class="product_card">
+						<figure class="snip1423">
+						  <img class="rc-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReqOQSE4J4_ePcXyVdHkN9ay_ABU2NFVPtkB3Xylvn0vDW0_n25D3Lc8cJGYzqzBP8LRg&usqp=CAU" alt="sample57" />
+						  <figcaption>
+						    <h3>Fruits and Veggies</h3>
+						   
+						    <div class="price">
+						    </div>
+						  </figcaption><i class="ion-android-cart"></i>
+						  <a href="#"></a>
+						</figure>
+					</div>
+				</div>
+				<div class="item">
+					<div class="product_card">
+						<figure class="snip1423">
+						  <img class="rc-image" src="https://media.spencers.in/media/catalog/product/cache/9aea502908834a1d54dbf70533ce428c/1/2/1298288-francesco-ready-to-eat-creamy-white-pasta-200g.jpg" alt="sample57" />
+						  <figcaption>
+						    <h3>Instant Food</h3>
+						   
+						    <div class="price">
+						    </div>
+						  </figcaption><i class="ion-android-cart"></i>
+						  <a href="#"></a>
+						</figure>
+					</div>
+				</div>
+				<div class="item">
+					<div class="product_card">
+						<figure class="snip1423">
+						  <img class="rc-image"src="https://previews.123rf.com/images/magone/magone1011/magone101100013/8171589-raw-chicken-meat.jpg" alt="sample57" />
+						  <figcaption>
+						    <h3>Meat and Frozens</h3>
+						    
+						    <div class="price">
+						    </div>
+						  </figcaption><i class="ion-android-cart"></i>
+						  <a href="#"></a>
+						</figure>
+					</div>
+				</div>
+				<div class="item">
+					<div class="product_card">
+						<figure class="snip1423">
+						  <img class="rc-image" src="https://5.imimg.com/data5/IO/GJ/MY-32043947/restaurant-crockery-set-500x500.jpg" alt="sample57" />
+						  <figcaption>
+						    <h3>Kitchen and Dinings</h3>
+						  
+						    <div class="price">
+						    </div>
+						  </figcaption><i class="ion-android-cart"></i>
+						  <a href="#"></a>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Feature section -->
+
+	<div class="feature_main">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<div class="features">
+						<div class="feature_icon">
+							<img src="./icons/delivery.png">
+						</div>
+						<div class="feature_content">
+							<h5>Free  Shipping</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="features">
+						<div class="feature_icon">
+							<img src="./icons/nurse.png">
+						</div>
+						<div class="feature_content">
+							<h5>No contact Deliveries</h5>
+							</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="features">
+						<div class="feature_icon">
+							<img src="./icons/credit-card.png">
+						</div>
+						<div class="feature_content">
+							<h5>Extra lower Prices</h5>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="features">
+						<div class="feature_icon">
+							<img src="./icons/delivery.png">
+						</div>
+						<div class="feature_content">
+							<h5>Priority Deliveries</h5>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- bottom icon -->
+	<div class="botton_main">
+		<div class="bottom_mobile_icon">
+			<div class="bottom_icons">
+				<a href="#">
+					<i class="fas fa-home"></i>
+				</a>
+			</div>
+			<div class="bottom_icons">
+				<a href="">
+					<i class="fas fa-bars"></i>
+				</a>
+			</div>
+			<div class="bottom_icons">
+				<a href="">
+					<i class="fas fa-shopping-cart"></i>
+				</a>
+			</div>
+			<div class="bottom_icons">
+				<a href="">
+					<i class="fas fa-user"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- footer section -->
+	<div class="footer_main">
+		<div class="container">
+			<div class="footer_grid">
+				<div class="footer_logo">
+					<img src="./kiranhub.gif">
+					<a href="tel:+180012456"><i class="fas fa-phone-alt"></i> +1800-1242458</a>
+					<a href="mailto:support@kiranhub.in"><i class="fas fa-envelope"></i> support@kiranhub.in</a>
+					<div class="">
+						<a href="#"><i class="fab fa-facebook"></i></a>
+						<a href="#"><i class="fab fa-instagram"></i></a>
+						<a href="#"><i class="fab fa-twitter"></i></a>
+					</div>
+				</div>
+				<div class="footer_links">
+					<h4>CATEGORIES</h4>
+					<ul>
+						<li><a href="">Grocery and Staples</a></li>
+						<li><a href="">Household Items</a></li>
+						<li><a href="">Personal Care</a></li>
+						<li><a href="">Baby and Pet Care</a></li>
+						<li><a href="">Bevarages</a></li>
+					</ul>
+				</div>
+				<div class="footer_links">
+					<h4> LINKS</h4>
+					<ul>
+						<li><a href="">About Us</a></li>
+						<li><a href="">Careers</a></li>
+						<li><a href="">Company's Blog</a></li>
+						<li><a href="">Terms</a></li>
+						<li><a href="">Privacy</a></li>
+					</ul>
+				</div>
+				<div class="footer_links">
+					<h4>Download Apps</h4>
+					<div class="download_app">
+						<a href="">
+							<img src="https://klbtheme.com/groci/wp-content/uploads/2018/08/google.png">
+						</a>
+						<a href="">
+							<img src="https://klbtheme.com/groci/wp-content/uploads/2018/08/apple.png">
+						</a>
+					</div>
+					<div class="payment">
+						<img src="https://klbtheme.com/groci/wp-content/uploads/2018/08/payment_methods.png">
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+	</div>
+	<div class="copyright">
+		<p>Copyright 2021.Kiran Hub . All rights reserved. Made with &#9825; by <a href="">Kiran Hub</a>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			console.log("work");
+		});
+		$('.cat_slider .owl-carousel').owlCarousel({
+		    loop:true,
+		    margin:0,
+		    nav:true,
+		    dots:false,
+		    autoplay:true,
+		    autoplayTimeout:3000,
+		    responsive:{
+		        0:{
+		            items:2
+		        },
+		        600:{
+		            items:4
+		        },
+		        1000:{
+		            items:8
+		        }
+		    }
+		});
+
+		$('.product_list .owl-carousel').owlCarousel({
+		    loop:true,
+		    margin:10,
+		    nav:true,
+		    dots:true,
+		    autoplay:false,
+		    autoplayTimeout:3000,
+		    responsive:{
+		        0:{
+		            items:1
+		        },
+		        600:{
+		            items:2
+		        },
+		        1000:{
+		            items:4
+		        }
+		    }
+		});
+	</script>
+</body>
+</html>
